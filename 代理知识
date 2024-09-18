@@ -1,0 +1,22 @@
+https://win2socks.com/zh/#features
+透明代理
+通过进程、文件、域名、IP地址或端口等方式将筛选的网络流量（TCP 和 UDP）转发到 SOCKS5、HTTPS、Shadowsocks 或 Trojan 代理服务器。
+批量测试服务器
+通过批量测试服务器可用性和延迟，迅速排除服务器故障，选择最优的服务器。
+网络阻隔
+通过进程、文件、域名、IP地址或端口等方式阻隔网络流量。
+加密 DNS
+支持 DNS over TLS、
+DNS over HTTPS 和
+DNS over QUIC。
+全局加密所有 DNS 请求。
+
+透明代理
+https://xtls.github.io/document/level-2/traffic_stats.html
+
+Proxifier实现应用级代理，让默认不走系统代理的软件，且未开放代理设置功能的程序可以进行代理
+Proxifier 
+proxychains
+
+内网渗透代理之多级代理篇
+在有些内网环境中，它的内网环境分为好几层，我们必须通过拿到一层内网中服务器的权限之后再通过这一内网中的服务器进一步访问二层内网中的其他服务器。在这种环境中，我们就需要多级代理突破层层内网，来实现在内网中漫游。
