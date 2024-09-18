@@ -24,3 +24,6 @@ https://www.cnblogs.com/sfsec/p/15524648.html
 
 正向代理 代理请求  client的请求优先发送到 mimt 再发送到server  代理都是修改请求头的源ip和目标ip  snat和dnat一样
 反向代理 代理响应  server的请求优先发送到 mimt 再到client 代理都是修改请求头的源ip和目标ip  snat和dnat一样
+
+轻量级Ajax代理，数据劫持并修改响应&重定向URL；兼容Chrome、Edge、Firefox
+https://zhuanlan.zhihu.com/p/370355054
