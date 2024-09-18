@@ -19,4 +19,8 @@ Proxifier
 proxychains
 
 内网渗透代理之多级代理篇
+https://www.cnblogs.com/sfsec/p/15524648.html
 在有些内网环境中，它的内网环境分为好几层，我们必须通过拿到一层内网中服务器的权限之后再通过这一内网中的服务器进一步访问二层内网中的其他服务器。在这种环境中，我们就需要多级代理突破层层内网，来实现在内网中漫游。
+
+正向代理 代理请求  client的请求优先发送到 mimt 再发送到server  代理都是修改请求头的源ip和目标ip  snat和dnat一样
+反向代理 代理响应  server的请求优先发送到 mimt 再到client 代理都是修改请求头的源ip和目标ip  snat和dnat一样
