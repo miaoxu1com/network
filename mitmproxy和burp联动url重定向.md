@@ -11,5 +11,13 @@ https://xz.aliyun.com/news/12664
 pyyhon代码启动：
 
 
-# 启动 mitmdump
+#### 启动 mitmdump
 mitmdump(['-s', 'mitmproxy_reveser.py','-p', str(7070), '--mode', "upstream:http://127.0.0.1:8080","--ssl-insecure"])
+
+设置系统代理 让流量经过mitmdump
+
+启动 burp的代理端口默认是8080
+
+开启burp的捕获
+
+完美捕获mitmdump的重定向流量
