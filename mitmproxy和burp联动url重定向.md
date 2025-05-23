@@ -23,3 +23,5 @@ mitmdump(['-s', 'mitmproxy_reveser.py','-p', str(7070), '--mode', "upstream:http
 完美捕获mitmdump的重定向流量
 
 使用mitmdump 可以开发自己的代理程序  实现多级代理
+
+mitmdump还可以配合 先抓包  然后再设置系统代理 系统代理
