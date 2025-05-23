@@ -21,3 +21,5 @@ mitmdump(['-s', 'mitmproxy_reveser.py','-p', str(7070), '--mode', "upstream:http
 开启burp的捕获
 
 完美捕获mitmdump的重定向流量
+
+使用mitmdump 可以开发自己的代理程序  实现多级代理
