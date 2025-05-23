@@ -1,3 +1,6 @@
+以下是一个完整的 Clash YAML 配置文件，包含 **中文注释**、**国内外流量分流** 和 **DNS 分流域名解析** 规则：
+
+```yaml
 # ------------------------------
 # 基础配置
 # ------------------------------
@@ -111,3 +114,65 @@ tun:
   dns-hijack: ["any:53"]   # 劫持所有 53 端口 DNS 查询
   auto-route: true         # 自动设置系统路由
   auto-detect-interface: true  # 自动选择网络接口
+```
+
+------
+
+### **配置文件说明**
+
+1. **流量分流逻辑**
+   - 国内域名/GeoIP 直连 (`DIRECT`)
+   - 国外流量自动选择最优节点 (`🔁 自动选择`)
+   - 内置 `GEOIP,CN` 数据库识别国内 IP
+2. **DNS 分流机制**
+   - `.cn` 域名及国内常见域名使用 `114.114.114.114` 等国内 DNS 解析
+   - 其他域名使用加密 DNS (`DoH/DoT`) 防止污染
+   - Fake-IP 模式减少 DNS 解析延迟
+3. **TUN 模式增强**
+   - 劫持所有 DNS 请求防止泄漏
+   - 自动路由国内外流量
+
+------
+
+### **使用前注意事项**
+
+1. **节点替换**：将 `proxies` 部分替换为您的实际订阅节点
+
+2. **规则更新**：建议定期更新 [GEOIP 数据库](https://github.com/Loyalsoldier/geoip)
+
+   ```yaml
+   yaml复制代码# 在配置开头添加 geoip 更新参数
+   geoip-auto-update: true
+   geoip-update-interval: 48
+   ```
+
+3. **平台适配**：
+
+   - **Windows**：建议使用 Clash for Windows 并启用 TUN 模式
+   - **macOS**：安装 [ClashX Pro](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
+   - **Linux**：需手动配置 TUN 设备权限
+
+4. **分流验证**：
+
+   - 访问 [IP.SB](https://ip.sb/) 确认国外 IP
+   - 访问 [百度](https://baidu.com/) 确认直连无代理
+
+------
+
+### **扩展优化建议**
+
+```yaml
+yaml复制代码# 在 rules 部分添加常用国内服务直连
+rules:
+  # 国内常见服务直连
+  - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,jd.com,DIRECT
+  - DOMAIN-SUFFIX,weibo.com,DIRECT
+  - DOMAIN-SUFFIX,zhihu.com,DIRECT
+
+  # 广告屏蔽规则 (示例)
+  - DOMAIN-KEYWORD,adservice,REJECT
+  - DOMAIN-SUFFIX,doubleclick.net,REJECT
+```
+
+可根据需要自行调整规则顺序和 DNS 服务器地址，建议搭配 [Clash 规则生成器](https://acl4ssr-sub.github.io/) 生成更复杂规则。
